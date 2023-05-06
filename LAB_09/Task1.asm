@@ -23,8 +23,8 @@ MAIN PROC
     ADD DL,48 
     INT 21H
     
-    MOV AH,2
-    MOV DL,VAR1
+    MOV AH,9
+    LEA DX,VAR1
     INT 21H
     
     MOV AX,[SI] 
