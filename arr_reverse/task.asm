@@ -1,7 +1,8 @@
 .MODEL SMALL
 .STACK 100H
 .DATA
-
+      
+    VAR1 DB 'ENTER YOUR NAME: $',10,13
     VAR DB 4 dup(?)
     
 .CODE
@@ -12,7 +13,13 @@ MAIN PROC
     LEA SI , VAR
     
     
-    MOV CX,4
+    MOV CX,4 
+    
+    MOV AH,9 
+    
+    LEA DX ,VAR1  
+    
+    INT 21H
    
     START1:
       
@@ -29,7 +36,14 @@ MAIN PROC
     
     LOOP START1
      
-     
+    MOV AH,2
+    MOV DL,10 
+    INT 21H
+    
+    MOV AH,2
+    MOV DL,13
+    INT 21H
+    
     LEA SI , VAR
     
     
